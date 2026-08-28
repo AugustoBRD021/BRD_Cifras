@@ -1,0 +1,77 @@
+Entrada de Dados:
+
+Para trabalhar com biblioteca, deve-se chamar o nome da biblioteca e "renomear": 
+
+String vFrase;
+
+Scanner entrada = new Scanner(Sytem.in); //instancia objeto
+
+System.out.printf("Informe uma frase: ");
+
+vFrase = entrada.nextLine(); //aqui é onde a frase inserida pelo usuário é armazenado na variável 
+
+System.out.print("A frase é : " + vFrase);
+
+
+String vString;
+
+System.out.printf("Informe uma palavra: ");
+
+vString = entrada.next(); //aqui é onde a palavra inserida pelo usuário é armazenado na variável 
+
+System.out.print("A palavra é : " + vString);
+
+
+
+int vInteiro;
+
+System.out.printf("Informe um inteiro: ");
+
+vInteiro = entrada.nextInt(); //aqui é onde o inteiro inserido pelo usuário é armazenado na variável 
+
+System.out.print("O numero é : " + vInteiro);
+
+
+double vDouble;
+
+System.out.printf("Informe um Double: ");
+
+vDouble = entrada.nextDouble(); //aqui é onde o Double inserido pelo usuário é armazenado na variável (o numero com decimal devera ser separado por vírgula, e não ponto)
+
+System.out.print("O double é : " + vDouble);
+
+float vFloat;
+
+System.out.printf("Informe um float: ");
+
+vFloat = entrada.nextFloat(); //aqui é onde o Float inserido pelo usuário é armazenado na variável
+System.out.print("O float é : " + vFloat);
+
+
+Exemplo de código:
+
+
+import java.util.Scanner; //importamos a biblioteca para que o usuário possa entrar com dados pelo teclado
+
+public class Main
+{
+	public static void main(String[] args) 
+	{
+		int numA, numB; //declaramos as variáveis a serem utilizadas no código
+		
+		Scanner entr = new Scanner(System.in); //inicializamos o scanner para receber os dados do usuario
+		
+		System.out.printf("Insira um numero: ");
+		numA = entr.nextInt(); //entrada de dados do usuário 
+		
+		System.out.printf("Insira outro numero: ");
+		numB = entr.nextInt(); //entrada de dados do usuário 
+		
+        System.out.printf("O primeiro numero é %d e o segundo é %d%n", numA, numB); //quando chamamos o "%d", estamos nos referindo a variável
+											do tipo "int", e colocamos o format no print (printf),
+											utilizamos o "n" em "%dn" para indicar uma quebra de linha (%n),
+											e, após tudo, fechamos a linha colocando na ordem correta as
+											variáveis a serem impressas na tela.
+		
+	}
+}

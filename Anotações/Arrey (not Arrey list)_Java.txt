@@ -1,0 +1,56 @@
+Arrey (not Arrey list):
+
+Biblioteca para gerar números aleatórios: Ramdom
+
+import java.util.Ramdom;
+
+//Arrey de strings
+
+String[] nomes = {"Arthur", "Fernando", "Camila", "Paula"};
+
+for (int contador = 0; contador < nomes.length; contador ++) {
+	System.out.println(nomes[contador]);
+}
+
+
+//Arrey de doubles
+
+double[] numerosDoubles = new double[10]; //alocando memoria de 10 posições
+
+for(int x = 0; x < numerosDoubles.length; x++) { //enquanto x for menor que nnumerosDoubles, x incrementa
+	numerosDoubles[x] = x;
+	System.out.println(numerosDoubles[x]);
+
+}
+
+
+//Arrey de inteiros aleatórios
+
+Ramdom geraNumero = new Ramdom(); // gera números aleatórios 
+
+int[] inteirosAleatorios = new int[10];
+for(int i = 0; i < inteirosAleatorios.length; i++) {
+	inteirosAleatorios [i] = geraNumero.nextInt(20);
+	System.out.println(inteirosAleatorios[i]);
+
+}
+
+// Arrey Bidimensional tipo matriz
+
+int[][] matrizDeInteiros = {
+	{1, 2, 3},
+	{4, 4, 7},
+	{9, 1, 6},
+};
+
+for(int linha = 0, linha < matrizDeInteiros.length; linha++){
+	for(int coluna = 0; coluna < matrizDeInteiros[linha].length; coluna++) {
+		System.out.println(matrizDeInteiros[linha][coluna]);
+	}
+	
+	System.out.println(""); // quebra de linha
+}
+
+System.out.println("Tamanho da linha 1: " + matrizDeInteiros[0].length);
+System.out.println("Tamanho da linha 2 " + matrizDeInteiros[1].length);
+System.out.println("Tamanho da linha 3" + matrizDeInteiros[2].length);

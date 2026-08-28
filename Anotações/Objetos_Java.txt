@@ -1,0 +1,595 @@
+# 1. O que é um Objeto?
+
+Um **objeto** é uma representação de algo do mundo real dentro do programa.
+
+Por exemplo:
+
+* Carro
+* Pessoa
+* Celular
+* Sensor
+* Hovercraft
+
+Cada objeto possui:
+
+* **Atributos** (características)
+* **Métodos** (ações)
+
+Exemplo de um carro:
+
+| Atributo | Valor |
+| -------- | ----- |
+| nome     | Opala |
+| cor      | Preto |
+| ano      | 1980  |
+
+Métodos:
+
+* ligar()
+* acelerar()
+* frear()
+
+---
+
+# 2. O que é uma Classe?
+
+A classe é o "molde" que define como os objetos serão criados.
+
+Imagine:
+
+* Classe = Planta da casa
+* Objeto = Casa construída
+
+Exemplo:
+
+```java
+public class Carro {
+
+    String nome;
+    String cor;
+    int ano;
+
+}
+```
+
+Aqui definimos o modelo de um carro.
+
+---
+
+# 3. Criando um Objeto
+
+Depois de criar a classe, podemos instanciar objetos.
+
+```java
+public class Main {
+
+    public static void main(String[] args) {
+
+        Carro carro1 = new Carro();
+
+        carro1.nome = "Opala";
+        carro1.cor = "Preto";
+        carro1.ano = 1980;
+
+    }
+
+}
+```
+
+---
+
+# 4. Acessando Atributos
+
+```java
+System.out.println(carro1.nome);
+System.out.println(carro1.cor);
+System.out.println(carro1.ano);
+```
+
+Saída:
+
+```text
+Opala
+Preto
+1980
+```
+
+---
+
+# 5. Métodos
+
+Métodos são funções dentro da classe.
+
+```java
+public class Carro {
+
+    String nome;
+
+    void ligar() {
+        System.out.println("O carro ligou.");
+    }
+
+}
+```
+
+Usando:
+
+```java
+Carro carro1 = new Carro();
+
+carro1.ligar();
+```
+
+Saída:
+
+```text
+O carro ligou.
+```
+
+---
+
+# 6. Método com Parâmetro
+
+Podemos enviar informações para o método.
+
+```java
+public class Carro {
+
+    void acelerar(int velocidade) {
+
+        System.out.println(
+            "Acelerando para " + velocidade + " km/h"
+        );
+
+    }
+
+}
+```
+
+Uso:
+
+```java
+carro1.acelerar(80);
+```
+
+Saída:
+
+```text
+Acelerando para 80 km/h
+```
+
+---
+
+# 7. Método com Retorno
+
+Métodos também podem devolver valores.
+
+```java
+public class Calculadora {
+
+    int somar(int a, int b) {
+        return a + b;
+    }
+
+}
+```
+
+Uso:
+
+```java
+Calculadora calc = new Calculadora();
+
+int resultado = calc.somar(10, 20);
+
+System.out.println(resultado);
+```
+
+Saída:
+
+```text
+30
+```
+
+---
+
+# 8. Construtores
+
+O construtor é executado automaticamente quando o objeto é criado.
+
+```java
+public class Carro {
+
+    String nome;
+
+    public Carro() {
+
+        System.out.println("Carro criado!");
+
+    }
+
+}
+```
+
+Uso:
+
+```java
+Carro carro1 = new Carro();
+```
+
+Saída:
+
+```text
+Carro criado!
+```
+
+---
+
+# 9. Construtor com Parâmetros
+
+```java
+public class Carro {
+
+    String nome;
+    String cor;
+
+    public Carro(String nome, String cor) {
+
+        this.nome = nome;
+        this.cor = cor;
+
+    }
+
+}
+```
+
+Uso:
+
+```java
+Carro carro1 = new Carro(
+    "Opala",
+    "Preto"
+);
+```
+
+---
+
+# 10. Palavra-chave "this"
+
+`this` significa:
+
+> "este objeto atual"
+
+Exemplo:
+
+```java
+public Carro(String nome) {
+
+    this.nome = nome;
+
+}
+```
+
+Java entende:
+
+```java
+atributo = valor recebido
+```
+
+---
+
+# 11. Encapsulamento
+
+Uma das bases da orientação a objetos.
+
+Em vez de deixar os atributos públicos:
+
+```java
+public String nome;
+```
+
+Fazemos:
+
+```java
+private String nome;
+```
+
+Agora ninguém pode alterar diretamente.
+
+---
+
+# 12. Getters e Setters
+
+Permitem acessar atributos privados.
+
+```java
+public class Pessoa {
+
+    private String nome;
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+}
+```
+
+Uso:
+
+```java
+Pessoa p = new Pessoa();
+
+p.setNome("Augusto");
+
+System.out.println(
+    p.getNome()
+);
+```
+
+---
+
+# 13. Herança
+
+Permite que uma classe herde características de outra.
+
+Classe pai:
+
+```java
+public class Veiculo {
+
+    void ligar() {
+        System.out.println("Ligando veículo");
+    }
+
+}
+```
+
+Classe filha:
+
+```java
+public class Carro extends Veiculo {
+
+}
+```
+
+Uso:
+
+```java
+Carro carro = new Carro();
+
+carro.ligar();
+```
+
+Saída:
+
+```text
+Ligando veículo
+```
+
+---
+
+# 14. Sobrescrita (Override)
+
+Modificar um método herdado.
+
+```java
+public class Veiculo {
+
+    void ligar() {
+        System.out.println("Ligando veículo");
+    }
+
+}
+```
+
+```java
+public class Carro extends Veiculo {
+
+    @Override
+    void ligar() {
+
+        System.out.println(
+            "Ligando carro"
+        );
+
+    }
+
+}
+```
+
+Saída:
+
+```text
+Ligando carro
+```
+
+---
+
+# 15. Polimorfismo
+
+Um objeto pode assumir diferentes formas.
+
+```java
+Veiculo v = new Carro();
+```
+
+Java enxerga:
+
+```java
+Veiculo
+```
+
+Mas executa:
+
+```java
+Carro
+```
+
+Exemplo:
+
+```java
+v.ligar();
+```
+
+Resultado:
+
+```text
+Ligando carro
+```
+
+---
+
+# 16. Classes Abstratas
+
+Servem como modelos para outras classes.
+
+```java
+public abstract class Veiculo {
+
+    abstract void ligar();
+
+}
+```
+
+Classe filha:
+
+```java
+public class Carro extends Veiculo {
+
+    @Override
+    void ligar() {
+
+        System.out.println(
+            "Ligando carro"
+        );
+
+    }
+
+}
+```
+
+---
+
+# 17. Interfaces
+
+Definem comportamentos obrigatórios.
+
+```java
+public interface Ligavel {
+
+    void ligar();
+
+}
+```
+
+Implementação:
+
+```java
+public class Carro
+implements Ligavel {
+
+    @Override
+    public void ligar() {
+
+        System.out.println(
+            "Carro ligado"
+        );
+
+    }
+
+}
+```
+
+---
+
+# 18. Exemplo Completo
+
+Classe:
+
+```java
+public class Hovercraft {
+
+    private String modelo;
+    private double peso;
+
+    public Hovercraft(
+        String modelo,
+        double peso
+    ) {
+
+        this.modelo = modelo;
+        this.peso = peso;
+
+    }
+
+    public void ligar() {
+
+        System.out.println(
+            modelo + " ligado."
+        );
+
+    }
+
+    public void mostrarDados() {
+
+        System.out.println(
+            "Modelo: " + modelo
+        );
+
+        System.out.println(
+            "Peso: " + peso + " kg"
+        );
+
+    }
+
+}
+```
+
+Main:
+
+```java
+public class Main {
+
+    public static void main(String[] args) {
+
+        Hovercraft h =
+            new Hovercraft(
+                "HC-01",
+                1.2
+            );
+
+        h.ligar();
+        h.mostrarDados();
+
+    }
+
+}
+```
+
+Saída:
+
+```text
+HC-01 ligado.
+Modelo: HC-01
+Peso: 1.2 kg
+```
+
+# Resumo
+
+A sequência ideal para aprender Orientação a Objetos em Java é:
+
+1. Classes
+2. Objetos
+3. Atributos
+4. Métodos
+5. Construtores
+6. `this`
+7. Encapsulamento
+8. Getters e Setters
+9. Herança
+10. Polimorfismo
+11. Classes Abstratas
+12. Interfaces

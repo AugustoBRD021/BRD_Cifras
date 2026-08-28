@@ -1,0 +1,75 @@
+SITE DE CIFRAS - PLANEJAMENTO
+=============================
+
+STACK ESCOLHIDA
+----------------
+- Backend: Java + Spring Boot (API REST)
+- Frontend: React (consome a API)
+- Objetivo do projeto: aprendizado (não é pra produção/publicação por enquanto)
+
+ESCOPO DA V1 (MVP)
+-------------------
+- Listar músicas cadastradas
+- Abrir uma música e ver a cifra (letra + acordes)
+- Buscar música por nome/artista
+
+MELHORIAS FUTURAS (V2 - fora de escopo por enquanto)
+------------------------------------------------------
+- Transposição de tom
+- Login/cadastro de usuário
+- Favoritar músicas
+- Comentários
+- Upload de cifra por usuários
+- Novas entidades possíveis: Tonalidade, Dificuldade, Afinação
+
+MODELAGEM DE DADOS
+-------------------
+Entidade: Artista
+- nome
+- descrição
+- relacionamento: um Artista tem várias Músicas (1 para N)
+  (obs: essa lista de músicas não é um campo salvo em Artista, é a
+  outra ponta do relacionamento - quem guarda a referência é a tabela
+  Musica, com uma coluna artista_id)
+
+Entidade: Musica
+- título
+- data de lançamento
+- artista (referência ao Artista dono da música)
+- corpo da cifra
+
+FORMATO DO CORPO DA CIFRA
+---------------------------
+Opção escolhida: B - acordes em uma linha separada, acima da letra
+
+    C          G
+    Se você quer saber de mim
+
+Implicações dessa escolha (pontos de atenção pra frente):
+- Ao salvar o texto, os espaços usados para alinhar o acorde sobre a
+  sílaba certa precisam ser preservados exatamente como digitados
+  (não pode haver limpeza automática de espaços).
+- Ao exibir na tela, será necessário usar fonte monoespaçada (largura
+  fixa), senão o alinhamento quebra.
+
+PRÓXIMOS PASSOS (roteiro geral)
+----------------------------------
+1. [OK] Definir escopo mínimo (MVP)
+2. [OK] Modelar os dados (entidades Artista e Musica)
+3. [OK] Decidir formato do corpo da cifra (opção B)
+4. [ ] Gerar esqueleto do projeto backend via Spring Initializr
+       Dependências: Spring Web, Spring Data JPA, H2 Database,
+       Validation, Spring Boot DevTools
+       Project: Maven | Language: Java | Packaging: Jar
+5. [ ] Construir backend em camadas: Entity -> Repository -> Service -> Controller
+6. [ ] Testar backend isoladamente (Postman/Insomnia ou Swagger)
+7. [ ] Criar projeto frontend em React (Vite)
+8. [ ] Implementar renderização da cifra no frontend (respeitando
+       alinhamento e fonte monoespaçada)
+9. [ ] Implementar transposição de tom
+10. [ ] Integrar backend + frontend (rodando local, configurar CORS)
+
+FERRAMENTAS
+------------
+- JDK: já instalado
+- IDE: Devin

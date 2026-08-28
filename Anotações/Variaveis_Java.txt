@@ -1,0 +1,90 @@
+Inicialização do programa :
+
+"import java.util.Scanner;
+
+public class (nome do arquivo) { //public é o modifier do arquivo
+	public static void main(String[] args) 
+	{
+
+		(código)
+
+	}
+}
+
+"System.out.print" - imprime texto
+"System.out.println" - imprime texto em nova linha
+
+Declaração de variável padrão (como em C), finalizando com ";"
+
+Chamada de variável em print "System.out.print("texto: " + variável);"
+
+Comentarios feitos como em C, "//" para uma unica linha, e "/*...+/" para varias linhas
+
+
+Variáveis de números inteiros:
+
+int varInt = 0; //números inteiros (4 bytes)
+	
+"System.out.println("Menor valor: " + Interger.MIN_VALUE);" mostra o menor valor que é possível armazenar em uma variável do tipo int.
+
+"System.out.println("Menor valor: " + Interger.MAX_VALUE);" mostra o maior valor que é possível armazenar em uma variável do tipo int.
+
+long varLong1 = 5000; //maior capacidade de armazenamento que o int (8 bytes)
+long varLong2 = 500000000;
+long varLong3 = 500000000000L; //para números com mais de 7 dígitos, é obrigatório adicionar "L" ao final do numero 
+
+"System.out.println("Menor valor: " + Long.MIN_VALUE);" mostra o menor valor que é possível armazenar em uma variável do tipo Long.
+
+"System.out.println("Menor valor: " + Long.MAX_VALUE);" mostra o maior valor que é possível armazenar em uma variável do tipo Long.
+
+
+short varShort; (2 bytes)
+varShort = 32767; //é possível declarar variáveis dessa forma
+
+"System.out.println("Menor valor: " + Short.MIN_VALUE);" mostra o menor valor que é possível armazenar em uma variável do tipo Short.
+
+"System.out.println("Menor valor: " + Short.MAX_VALUE);" mostra o maior valor que é possível armazenar em uma variável do tipo Short.
+
+byte varByte = 127; (1 byte)
+
+"System.out.println("Menor valor: " + Byte.MIN_VALUE);" mostra o menor valor que é possível armazenar em uma variável do tipo Byte.
+
+"System.out.println("Menor valor: " + Byte.MAX_VALUE);" mostra o maior valor que é possível armazenar em uma variável do tipo Byte.
+
+
+
+Variaves reais (ponto flutuante):
+
+float varFloat = 3.14159265f; //números com casas decimais, e é necessário conter a letra "f" ao final da declaração para números longos (4 bytes)
+
+System.out.println(varFloat);
+
+"System.out.println("Menor valor: " + Float.MIN_VALUE);" mostra o menor valor que é possível armazenar em uma variável do tipo Float.
+
+"System.out.println("Menor valor: " + Float.MAX_VALUE);" mostra o maior valor que é possível armazenar em uma variável do tipo Float.
+
+
+double varDouble = 3.141592653589793; //funciona como o Float, mas não necessita de letra (flutuante) ao final da declaração. (8 bytes)
+
+"System.out.println("Menor valor: " + Double.MIN_VALUE);" mostra o menor valor que é possível armazenar em uma variável do tipo Double.
+
+"System.out.println("Menor valor: " + Double.MAX_VALUE);" mostra o maior valor que é possível armazenar em uma variável do tipo Double.
+
+
+
+Outras variáveis:
+
+boolean varBooleano = true; //1 bit
+System.out.println(varBooleano);
+
+
+char símbolo = 'a'; 
+System.out.println(símbolo);
+
+símbolo = 97;
+System.ou.println(símbolo); //trabalha com tabela ASCII
+
+
+String palavra = "Uma palavra ou uma frase...."; //não é uma variável, e sim uma cadeia de chars.
+
+System.out.println(palavra);

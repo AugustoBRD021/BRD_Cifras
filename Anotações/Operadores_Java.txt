@@ -1,0 +1,74 @@
+Operadores:
+
+Biblioteca para operações matemáticas: math
+
+import java.lang.Math;
+
+int numA = 5;
+int numB = 2;
+
+//soma
+
+int total = numa + numB;
+
+System.out.println(total);
+
+//Subtração
+
+total = numa - numB;
+
+System.out.println(total);
+
+//Multiplicação
+
+total = numa * numB;
+
+System.out.println(total);
+
+//Divisão
+
+total = numA / numB;
+
+System.out.println(total);
+
+double numC, numD, totalDouble;
+
+numC = 5;
+
+numD = 2;
+
+totalDouble = numC / numD;
+
+System.out.println(totalDouble);
+
+
+//Resto de divisão (MOD)
+
+total = numA % numB;
+System.out.println(total);
+
+
+//Potenciação
+
+double numE, numF, potencia;
+
+numE = 2;
+numF = 3;
+
+potencia = Math.pow(numE, numF); //atribui á variável a operação de potenciação
+System.out.println(potencia);
+
+
+//Radiciação
+
+double raiz;
+
+raiz = Math.sqrt(numero que desejar); //abtribui á variável a operação de radiciação
+
+System.out.println(raiz);
+
+
+//Raiz cúbica 
+
+raiz = Math.cbrt(numero que desejar);
+System.out.println(raiz);

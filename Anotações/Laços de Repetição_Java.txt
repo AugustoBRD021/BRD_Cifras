@@ -1,0 +1,38 @@
+Laços de Repetição:
+
+Sintaxe while: 
+
+int contador = 1;
+
+while(contador <= 10){
+
+	System.out.println(contador);
+	contador++;
+
+}
+
+
+
+Sintaxe do while:
+
+int contador = 1;
+
+do {
+	System.out.println(contador);
+	contador++;
+
+}while(contador <= 10);
+
+
+Sintaxe for:
+
+for(int contador = 1; contador <= 10; contador++) { //variável deve ser criada dentro do for
+	System.out.println(contador);
+
+}
+
+
+String[] frutas = {"Maçã", "Melão", "Banana", "Abacate"};
+for(int contador = 0; contador < frutas.length; contador++) { // .length mede o tamanho do array
+	System.out.println(frutas[contador]);
+}

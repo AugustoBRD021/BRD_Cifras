@@ -1,0 +1,13 @@
+Incremento e Decremento:
+
+int a = 1;
+
+System.out.println(a++); //imprime o valor original, e incrementa (pos-incremento)
+
+
+System.out.println(++a); // incrementa e imprime o valor incrementado(pre-incremento)
+
+System.out.println(a--); // imprime o valor original e decrementa (pos-decremento)
+
+System.out.println(--a); // decrementa e imprime o valor decrementado (pre-decremento
+

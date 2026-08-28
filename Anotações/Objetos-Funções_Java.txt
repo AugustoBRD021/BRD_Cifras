@@ -1,0 +1,65 @@
+# Objetos em Java
+
+Objetos são instâncias de classes. Uma classe funciona como um molde que define atributos (variáveis) e métodos (funções) que os objetos criados a partir dela possuirão.
+
+Normalmente, cria-se uma classe para representar uma entidade e, em outra classe, geralmente a que contém o método `main()`, são criados os objetos e utilizados seus atributos e métodos.
+
+## Exemplo
+
+### Classe Carro
+
+```java
+public class Carro {
+
+    public String nome = "Opala";
+    public String modelo = "Opala Diplomata Coupé 1987";
+    public int ano = 1987;
+
+    String[] acessorios = {
+        "Faróis de LED",
+        "Suporte para celular",
+        "Bagageiro de teto cromado",
+        "Calota Gran Luxo"
+    };
+
+    public void acelerar() {
+        System.out.println("Vruuum");
+    }
+
+    public double calculaConsumo(double km) {
+        return km / 6.61;
+    }
+}
+```
+
+### Classe Principal
+
+```java
+public class TestaCarro {
+
+    public static void main(String[] args) {
+
+        Carro carroUm = new Carro();
+
+        System.out.println("Nome do carro: " + carroUm.nome);
+        System.out.println("Modelo: " + carroUm.modelo);
+        System.out.println("Ano: " + carroUm.ano);
+
+        carroUm.acelerar();
+
+        double consumo = carroUm.calculaConsumo(100);
+
+        System.out.println("Consumo para 100 km: " + consumo + " litros");
+    }
+}
+```
+
+## Explicação
+
+* `Carro carroUm = new Carro();` cria um objeto da classe `Carro`.
+* O operador `new` reserva espaço na memória e instancia o objeto.
+* Os atributos podem ser acessados usando a notação ponto (`.`), como `carroUm.nome`.
+* Os métodos também são chamados usando a notação ponto, como `carroUm.acelerar()`.
+* Cada objeto criado possui seus próprios valores e pode executar os métodos definidos na classe.
+
+Dessa forma, a classe define as características e comportamentos, enquanto os objetos representam instâncias reais dessa classe durante a execução do programa.

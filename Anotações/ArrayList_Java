@@ -1,0 +1,28 @@
+Declarar e inicializar:
+
+javaArrayList<String> lista = new ArrayList<>();
+
+O tipo dentro de <> define o que a lista armazena. Pode ser String, Integer, ou até uma classe que você criar.
+
+Adicionar item:
+javalista.add("tarefa 1");
+
+Acessar item pelo índice:
+javalista.get(0); // primeiro item (índice começa em 0)
+
+Remover item pelo índice:
+javalista.remove(0); // remove o primeiro item
+
+Tamanho da lista:
+javalista.size(); // retorna quantos itens tem
+
+Percorrer a lista:
+javafor (int i = 0; i < lista.size(); i++) {
+    System.out.println(i + " - " + lista.get(i));
+}
+
+Verificar se está vazia:
+javalista.isEmpty(); // retorna true se não tiver nenhum item
+
+Modificar um item:
+javalista.set(0, "novo valor"); // substitui o item no índice 0
