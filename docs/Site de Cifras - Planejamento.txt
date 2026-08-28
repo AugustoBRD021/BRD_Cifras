@@ -5,6 +5,10 @@ STACK ESCOLHIDA
 ----------------
 - Backend: Java + Spring Boot (API REST)
 - Frontend: React (consome a API)
+- Banco de dados: PostgreSQL, hospedado no Supabase (inicialmente).
+  Futuramente pode migrar para uma instância PostgreSQL própria -
+  Supabase já é PostgreSQL por baixo dos panos, então a migração
+  seria só de host/string de conexão, sem trocar driver nem queries.
 - Objetivo do projeto: aprendizado (não é pra produção/publicação por enquanto)
 
 ESCOPO DA V1 (MVP)
@@ -58,9 +62,10 @@ PRÓXIMOS PASSOS (roteiro geral)
 2. [OK] Modelar os dados (entidades Artista e Musica)
 3. [OK] Decidir formato do corpo da cifra (opção B)
 4. [ ] Gerar esqueleto do projeto backend via Spring Initializr
-       Dependências: Spring Web, Spring Data JPA, H2 Database,
+       Dependências: Spring Web, Spring Data JPA, PostgreSQL Driver,
        Validation, Spring Boot DevTools
        Project: Maven | Language: Java | Packaging: Jar
+       Conexão configurada apontando para o banco do Supabase
 5. [ ] Construir backend em camadas: Entity -> Repository -> Service -> Controller
 6. [ ] Testar backend isoladamente (Postman/Insomnia ou Swagger)
 7. [ ] Criar projeto frontend em React (Vite)
