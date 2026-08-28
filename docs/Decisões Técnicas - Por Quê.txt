@@ -1,0 +1,84 @@
+SITE DE CIFRAS - DECISÕES TÉCNICAS (POR QUÊ)
+=============================================
+
+Este documento registra o raciocínio por trás das escolhas técnicas
+do Passo a Passo (docs/Passo a Passo - Implementação.txt), para
+consulta futura. Vai sendo atualizado conforme o projeto avança.
+
+ESTRUTURA DE PASTAS DO REPOSITÓRIO
+------------------------------------
+Decisão: backend e frontend dentro do mesmo repositório (BRD_Cifras),
+em pastas separadas na raiz.
+
+    projetos/
+    |-- backend/     -> projeto Spring Boot
+    |-- frontend/     -> projeto React (Passo 6)
+    |-- docs/
+    |-- Anotações/
+    `-- README.md
+
+Por quê:
+- Backend e frontend evoluem juntos nesta fase de aprendizado; manter
+  os dois no mesmo repo facilita ver o projeto completo sem navegar
+  entre repositórios diferentes.
+- Pastas separadas na raiz evitam misturar arquivos de build/config do
+  Maven com os do npm/Vite.
+
+SEM DOCKER (por enquanto)
+----------------------------
+Decisão: não usar Docker nesta fase do projeto.
+
+Por quê:
+- O banco Postgres já é hospedado e gerenciado pelo Supabase - usar
+  Docker para rodar Postgres localmente seria duplicar essa solução.
+- O objetivo do projeto é aprender Spring Boot + React. Adicionar
+  Docker agora (Dockerfile, docker-compose, rede entre containers)
+  empilha mais uma camada de complexidade antes de o básico funcionar.
+- Fica marcado como possível passo futuro (aprender containerização/
+  deploy) depois que o fluxo completo estiver validado localmente.
+
+ESCOLHAS DO SPRING INITIALIZR (PASSO 2)
+-------------------------------------------
+Maven (em vez de Gradle):
+- Gerenciador de build/dependências do Java. Sintaxe XML mais
+  verbosa que o Gradle, mas mais fácil de ler o que está acontecendo
+  quando ainda se está aprendendo.
+
+Java (linguagem do projeto, decisão já tomada no planejamento).
+
+Packaging = Jar (em vez de War):
+- Gera um executável standalone com servidor HTTP embutido (Tomcat).
+- War exigiria um servidor externo para rodar a aplicação - desnece-
+  ssário aqui, já que a ideia é rodar a API localmente com um comando.
+
+Versão do Java:
+- Precisa bater com a versão instalada na máquina (`java -version`),
+  senão o projeto não compila/roda.
+
+DEPENDÊNCIAS ADICIONADAS
+----------------------------
+Spring Web:
+- Fornece o necessário para criar endpoints REST (@RestController) e
+  sobe um servidor HTTP embutido. Sem isso não há como expor as APIs
+  do Passo 4 (listar, buscar, visualizar música).
+
+Spring Data JPA:
+- Abstrai o acesso ao banco de dados. As entidades (Artista, Musica)
+  são definidas como classes Java anotadas, e o Spring/Hibernate gera
+  o SQL das operações básicas (CRUD) por trás dos panos - evita
+  escrever queries manuais para o que é repetitivo.
+
+PostgreSQL Driver:
+- É o "tradutor" entre a JVM e o banco Postgres especificamente. Sem
+  ele, o JPA não sabe como se comunicar com o banco do Supabase (que
+  é Postgres por baixo dos panos).
+
+Validation:
+- Permite validar dados de entrada direto nas classes de entidade/DTO
+  usando anotações (ex: @NotBlank, @NotNull), em vez de escrever
+  validação manual espalhada pelo código.
+
+Spring Boot DevTools:
+- Reinicia a aplicação automaticamente quando um arquivo é salvo,
+  acelerando o ciclo de desenvolvimento (sem precisar parar e rodar
+  de novo manualmente a cada mudança).
