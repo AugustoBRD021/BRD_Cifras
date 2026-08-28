@@ -1,0 +1,95 @@
+SITE DE CIFRAS - PASSO A PASSO DE IMPLEMENTAÇÃO
+==================================================
+
+Contexto completo das decisões (stack, escopo, modelagem, formato da
+cifra) está em: docs/Site de Cifras - Planejamento.txt
+Leia esse arquivo antes de começar, para não perder o contexto das
+decisões já tomadas.
+
+RESUMO RÁPIDO DAS DECISÕES
+----------------------------
+- Backend: Java + Spring Boot (API REST)
+- Frontend: React (Vite)
+- Banco: PostgreSQL hospedado no Supabase
+- Entidades: Artista (nome, descrição) e Musica (título, data de
+  lançamento, artista, corpo da cifra) - relacionamento 1 (Artista)
+  para N (Musica)
+- Corpo da cifra: acordes em linha separada, acima da letra (exige
+  preservar espaços exatamente e usar fonte monoespaçada na exibição)
+- Objetivo: aprendizado
+
+PASSO 1 - Criar o projeto no Supabase
+----------------------------------------
+[ ] Criar conta/projeto no Supabase (supabase.com)
+[ ] Anotar em local seguro (NÃO commitar no git): host, porta, nome
+    do banco, usuário e senha da conexão PostgreSQL fornecidos pelo
+    Supabase
+[ ] Confirmar que o banco está acessível (via painel do Supabase ou
+    um client PostgreSQL)
+
+PASSO 2 - Gerar o esqueleto do backend (Spring Initializr)
+--------------------------------------------------------------
+[ ] Acessar start.spring.io
+[ ] Configurar: Project = Maven, Language = Java, Packaging = Jar,
+    Java version = a instalada na máquina
+[ ] Adicionar dependências: Spring Web, Spring Data JPA, PostgreSQL
+    Driver, Validation, Spring Boot DevTools
+[ ] Gerar, baixar o .zip, extrair e abrir a pasta no VSCode
+
+PASSO 3 - Configurar a conexão com o Supabase
+---------------------------------------------------
+[ ] Configurar as credenciais do banco (host, porta, usuário, senha)
+    no application.properties (ou application.yml) do projeto Spring
+[ ] Manter essas credenciais fora do controle de versão (usar
+    variáveis de ambiente ou um arquivo ignorado pelo git, nunca
+    commitar senha em texto puro)
+[ ] Rodar a aplicação e confirmar que ela conecta no banco sem erro
+
+PASSO 4 - Construir o backend em camadas
+--------------------------------------------
+Ordem: Entity -> Repository -> Service -> Controller
+
+[ ] Criar a entidade Artista (nome, descrição)
+[ ] Criar a entidade Musica (título, data de lançamento, referência
+    ao Artista, corpo da cifra) com o relacionamento 1:N já definido
+[ ] Criar os Repositories (interfaces) de Artista e Musica
+[ ] Criar os Services com a lógica de: listar músicas, buscar por
+    nome/artista, buscar música por id (para exibir a cifra)
+[ ] Criar os Controllers REST expondo esses endpoints
+
+PASSO 5 - Testar o backend isoladamente
+---------------------------------------------
+[ ] Usar Postman, Insomnia ou Swagger (springdoc-openapi) para testar
+    cada endpoint antes de criar o frontend
+[ ] Confirmar que listar, buscar e visualizar retornam os dados
+    esperados, incluindo o corpo da cifra com espaços preservados
+
+PASSO 6 - Criar o projeto frontend (React + Vite)
+-------------------------------------------------------
+[ ] Criar o projeto com Vite
+[ ] Estruturar as telas: lista de músicas, busca, detalhe da música
+    (exibição da cifra)
+[ ] Consumir a API do backend (endpoints já testados no Passo 5)
+
+PASSO 7 - Renderizar a cifra corretamente
+-----------------------------------------------
+[ ] Exibir o corpo da cifra usando fonte monoespaçada (largura fixa)
+[ ] Garantir que espaços/quebras de linha do texto original não sejam
+    "limpos" ou colapsados pelo HTML (preservar espaçamento exato)
+
+PASSO 8 - Integrar backend + frontend localmente
+-------------------------------------------------------
+[ ] Rodar backend e frontend ao mesmo tempo, em portas diferentes
+[ ] Configurar CORS no Spring Boot para liberar as chamadas vindas do
+    frontend
+[ ] Validar o fluxo completo: listar -> buscar -> abrir cifra
+
+MELHORIAS FUTURAS (fora do escopo da v1 - não implementar ainda)
+------------------------------------------------------------------
+- Transposição de tom
+- Login/cadastro de usuário
+- Favoritar músicas
+- Comentários
+- Upload de cifra por usuários
+- Novas entidades: Tonalidade, Dificuldade, Afinação
+- Migração do banco do Supabase para uma instância PostgreSQL própria
