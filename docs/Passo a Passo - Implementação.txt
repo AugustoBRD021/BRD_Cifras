@@ -9,7 +9,7 @@ decisões já tomadas.
 RESUMO RÁPIDO DAS DECISÕES
 ----------------------------
 - Backend: Java + Spring Boot (API REST)
-- Frontend: React (Vite)
+- Frontend: JavaScript puro (Vite, sem framework, sem TypeScript)
 - Banco: PostgreSQL hospedado no Supabase
 - Entidades: Artista (nome, descrição) e Musica (título, data de
   lançamento, artista, corpo da cifra) - relacionamento 1 (Artista)
@@ -64,12 +64,14 @@ PASSO 5 - Testar o backend isoladamente
 [ ] Confirmar que listar, buscar e visualizar retornam os dados
     esperados, incluindo o corpo da cifra com espaços preservados
 
-PASSO 6 - Criar o projeto frontend (React + Vite)
+PASSO 6 - Criar o projeto frontend (JavaScript puro + Vite)
 -------------------------------------------------------
-[ ] Criar o projeto com Vite
+[ ] Criar o projeto com Vite (template "vanilla", sem framework e sem
+    TypeScript)
 [ ] Estruturar as telas: lista de músicas, busca, detalhe da música
-    (exibição da cifra)
-[ ] Consumir a API do backend (endpoints já testados no Passo 5)
+    (exibição da cifra), manipulando o DOM diretamente com JS
+[ ] Consumir a API do backend (endpoints já testados no Passo 5) via
+    fetch
 
 PASSO 7 - Renderizar a cifra corretamente
 -----------------------------------------------

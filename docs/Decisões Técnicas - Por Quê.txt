@@ -12,7 +12,7 @@ em pastas separadas na raiz.
 
     projetos/
     |-- backend/     -> projeto Spring Boot
-    |-- frontend/     -> projeto React (Passo 6)
+    |-- frontend/     -> projeto JavaScript puro + Vite (Passo 6)
     |-- docs/
     |-- Anotações/
     `-- README.md
@@ -82,3 +82,16 @@ Spring Boot DevTools:
 - Reinicia a aplicação automaticamente quando um arquivo é salvo,
   acelerando o ciclo de desenvolvimento (sem precisar parar e rodar
   de novo manualmente a cada mudança).
+
+FRONTEND EM JAVASCRIPT PURO, SEM REACT/TYPESCRIPT
+------------------------------------------------------
+Decisão: trocar React + TypeScript por JavaScript puro (com Vite só
+como dev server/bundler, sem framework).
+
+Por quê:
+- Objetivo do projeto é aprendizado; entender manipulação de DOM,
+  fetch e organização de módulos em JS puro antes de introduzir a
+  camada extra de abstração que um framework (e um sistema de tipos)
+  trazem.
+- Vite continua sendo usado (template "vanilla"), então o fluxo de
+  dev server/build não muda, só o que roda dentro dele.

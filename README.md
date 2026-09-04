@@ -5,7 +5,7 @@ Site de cifras musicais (letra + acordes), desenvolvido para fins educacionais.
 ## Stack
 
 - **Backend:** Java + Spring Boot (API REST)
-- **Frontend:** React
+- **Frontend:** JavaScript puro (Vite, sem framework)
 - **Banco de dados:** PostgreSQL, hospedado no Supabase (futuramente pode migrar para uma instância PostgreSQL própria — Supabase já é PostgreSQL por baixo dos panos, então a migração é só de host/conexão)
 
 ## Status do projeto

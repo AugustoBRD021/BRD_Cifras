@@ -4,7 +4,7 @@ SITE DE CIFRAS - PLANEJAMENTO
 STACK ESCOLHIDA
 ----------------
 - Backend: Java + Spring Boot (API REST)
-- Frontend: React (consome a API)
+- Frontend: JavaScript puro (Vite, sem framework, sem TypeScript), consome a API
 - Banco de dados: PostgreSQL, hospedado no Supabase (inicialmente).
   Futuramente pode migrar para uma instância PostgreSQL própria -
   Supabase já é PostgreSQL por baixo dos panos, então a migração
@@ -68,7 +68,7 @@ PRÓXIMOS PASSOS (roteiro geral)
        Conexão configurada apontando para o banco do Supabase
 5. [ ] Construir backend em camadas: Entity -> Repository -> Service -> Controller
 6. [ ] Testar backend isoladamente (Postman/Insomnia ou Swagger)
-7. [ ] Criar projeto frontend em React (Vite)
+7. [ ] Criar projeto frontend em JavaScript puro (Vite)
 8. [ ] Implementar renderização da cifra no frontend (respeitando
        alinhamento e fonte monoespaçada)
 9. [ ] Implementar transposição de tom
